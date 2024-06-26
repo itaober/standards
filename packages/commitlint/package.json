@@ -1,0 +1,41 @@
+{
+  "name": "@itaober/commitlint",
+  "version": "0.1.0-alpha.1",
+  "license": "MIT",
+  "keywords": [
+    "commitlint"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "package.json",
+    "LICENSE",
+    "cli.js"
+  ],
+  "bin": {
+    "commitlint": "./node_modules/@commitlint/cli/cli.js"
+  },
+  "scripts": {
+    "clear": "rm -rf dist",
+    "build": "pnpm clear && rollup -c"
+  },
+  "dependencies": {
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@commitlint/types": "^19.0.3"
+  },
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "rollup": "^4.18.0",
+    "typescript": "^5.5.2"
+  }
+}
