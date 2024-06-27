@@ -18,6 +18,6 @@ export default [
         format: "cjs",
       },
     ],
-    plugins: [typescript(), resolve(), commonjs(), terser()],
+    plugins: [resolve(), commonjs(), typescript(), terser()],
   },
 ];
