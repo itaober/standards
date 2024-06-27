@@ -15,10 +15,10 @@
   "types": "dist/index.d.ts",
   "files": [
     "dist",
-    "README.md",
+    "cli.js",
     "package.json",
-    "LICENSE",
-    "cli.js"
+    "README.md",
+    "LICENSE"
   ],
   "bin": {
     "commitlint": "./node_modules/@commitlint/cli/cli.js"
@@ -28,6 +28,7 @@
     "build": "pnpm clear && rollup -c"
   },
   "dependencies": {
+    "@itaober/tsconfig": "workspace:*",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@commitlint/types": "^19.0.3"

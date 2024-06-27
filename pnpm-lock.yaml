@@ -26,6 +26,9 @@ importers:
       '@commitlint/types':
         specifier: ^19.0.3
         version: 19.0.3
+      '@itaober/tsconfig':
+        specifier: workspace:*
+        version: link:../tsconfig
     devDependencies:
       '@rollup/plugin-commonjs':
         specifier: ^26.0.1
@@ -45,6 +48,8 @@ importers:
       typescript:
         specifier: ^5.5.2
         version: 5.5.2
+
+  packages/tsconfig: {}
 
 packages:
 

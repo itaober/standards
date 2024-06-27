@@ -1,0 +1,14 @@
+{
+  "name": "@itaober/tsconfig",
+  "version": "0.1.0-alpha.1",
+  "license": "MIT",
+  "keywords": [
+    "tsconfig"
+  ],
+  "files": [
+    "tsconfig.base.json",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ]
+}
