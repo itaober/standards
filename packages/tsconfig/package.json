@@ -6,7 +6,9 @@
     "tsconfig"
   ],
   "files": [
-    "tsconfig.base.json",
+    "base.json",
+    "react-library.json",
+    "react-app.json",
     "package.json",
     "README.md",
     "LICENSE"

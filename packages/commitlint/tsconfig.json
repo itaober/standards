@@ -1,5 +1,5 @@
 {
-  "extends": "@itaober/tsconfig/tsconfig.base.json",
+  "extends": "@itaober/tsconfig/base.json",
   "compilerOptions": {
     "outDir": "dist"
   },
