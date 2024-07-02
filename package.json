@@ -19,7 +19,8 @@
     "@itaober/commitlint": "workspace:*",
     "@itaober/eslint-config": "workspace:*",
     "eslint": "^9.6.0",
-    "simple-git-hooks": "^2.11.1"
+    "simple-git-hooks": "^2.11.1",
+    "typescript": "^5.5.2"
   },
   "simple-git-hooks": {
     "commit-msg": "npx --no-install commitlint --edit $1"

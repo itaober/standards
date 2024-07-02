@@ -1,27 +1,37 @@
-// import process from "node:process";
+import process from "node:process";
+
 import type { Linter } from "eslint";
-import type { IConfigOptions } from "./types";
-import { ignores, javascript } from "./configs";
 
-export const factory = (options?: IConfigOptions): Linter.FlatConfig[] => {
-  // const {
-  //   isInEditor = !!(
-  //     (process.env.VSCODE_PID ||
-  //       process.env.VSCODE_CWD ||
-  //       process.env.JETBRAINS_IDE ||
-  //       process.env.VIM ||
-  //       process.env.NVIM) &&
-  //     !process.env.CI
-  //   ),
-  //   typescript: enableTypeScript,
-  // } = options ?? {};
+import { ignores, imports, javascript, typescript } from "./configs";
+import type { Awaitable, IConfigOptions } from "./types";
+import { isDepExist } from "./utils";
 
-  const configs: Linter.FlatConfig[] = [
+export const factory = (options?: IConfigOptions): Awaitable<Linter.FlatConfig[]> => {
+  const {
+    isInEditor = !!(
+      (process.env.VSCODE_PID ||
+        process.env.VSCODE_CWD ||
+        process.env.JETBRAINS_IDE ||
+        process.env.VIM ||
+        process.env.NVIM) &&
+      !process.env.CI
+    ),
+    typescript: enableTypeScript = isDepExist('typescript'),
+  } = options ?? {};
+
+  const configs: Awaitable<Linter.FlatConfig[]> = [
     ...ignores(),
     ...javascript({
       overrides: getOverrides(options, "javascript"),
     }),
+    ...imports({isInEditor})
   ];
+
+  if(enableTypeScript) {
+    configs.push(...typescript())
+  }
+
+
 
   return configs;
 };

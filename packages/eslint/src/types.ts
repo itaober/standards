@@ -1,5 +1,5 @@
-import type { Linter } from "eslint";
 import type { ParserOptions } from "@typescript-eslint/parser";
+import type { Linter } from "eslint";
 
 export type Awaitable<T> = T | Promise<T>;
 

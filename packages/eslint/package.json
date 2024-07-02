@@ -24,19 +24,20 @@
     "eslint": ">=8.4.0"
   },
   "dependencies": {
-    "@itaober/tsconfig": "workspace:*",
+    "@typescript-eslint/eslint-plugin": "^7.15.0",
     "@typescript-eslint/parser": "^7.15.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-import-x": "^0.5.3",
+    "eslint-plugin-simple-import-sort": "^12.1.0",
+    "eslint-plugin-unused-imports": "^4.0.0",
     "globals": "^15.7.0"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^26.0.1",
+    "@itaober/tsconfig": "workspace:*",
     "@rollup/plugin-json": "^6.1.0",
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.6",
     "@types/eslint": "^8.56.10",
     "@types/node": "^20.14.9",
-    "rollup": "^4.18.0",
-    "typescript": "^5.5.2"
+    "rollup": "^4.18.0"
   }
 }

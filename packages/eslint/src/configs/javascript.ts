@@ -1,7 +1,8 @@
-import globals from "globals";
 import type { Linter } from "eslint";
-import type { IOverrides } from "../types";
+import globals from "globals";
+
 import { GLOB_SRC, GLOB_SRC_EXT } from "../globs";
+import type { IOverrides } from "../types";
 
 export const javascript = (options?: IOverrides): Linter.FlatConfig[] => {
   const { overrides = {} } = options ?? {};
