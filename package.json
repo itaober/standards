@@ -3,15 +3,22 @@
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "build": "pnpm recursive run build",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix",
+    "lint:inspect": "npx @eslint/config-inspector",
     "prepare": "simple-git-hooks"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@eslint/config-inspector": "^0.5.1",
     "@itaober/commitlint": "workspace:*",
+    "@itaober/eslint-config": "workspace:*",
+    "eslint": "^9.6.0",
     "simple-git-hooks": "^2.11.1"
   },
   "simple-git-hooks": {

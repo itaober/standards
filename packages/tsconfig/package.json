@@ -8,9 +8,6 @@
   "files": [
     "base.json",
     "react-library.json",
-    "react-app.json",
-    "package.json",
-    "README.md",
-    "LICENSE"
+    "react-app.json"
   ]
 }
