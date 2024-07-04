@@ -1,5 +1,5 @@
-import { prettierPlugin } from '../plugins';
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 
 export const prettier = () => {
-  return [prettierPlugin];
+  return [eslintPluginPrettierRecommended];
 };

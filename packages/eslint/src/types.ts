@@ -77,13 +77,10 @@ export interface IConfigOptions extends Linter.FlatConfig {
    * @default auto-detect based on the dependencies
    */
   typescript?:
-    | boolean
-    | (IOverrides & ICustomFileGlobs & (ITypeScriptWithTsconfigPath | ITypeScriptParserOptions));
+  | boolean
+  | (IOverrides & ICustomFileGlobs & (ITypeScriptWithTsconfigPath | ITypeScriptParserOptions));
   /**
-   * Use external formatter to format files.
-   *
-   * When set to `true`, it will enable all formatters.
-   *
+   * Runs Prettier as an ESLint rule and reports differences as individual ESLint issues.
    * @default auto-detect based on the dependencies
    */
   prettier?: boolean;
