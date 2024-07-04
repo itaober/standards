@@ -16,7 +16,7 @@
     "javascriptreact",
     "typescript",
     "typescriptreact",
-    "vue",
+    "vue"
     // "html",
     // "markdown",
     // "json",
@@ -24,5 +24,5 @@
     // "yaml",
     // "toml",
     // "xml"
-  ],
+  ]
 }

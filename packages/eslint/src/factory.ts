@@ -44,7 +44,6 @@ export const factory = (options?: IConfigOptions): Awaitable<Linter.FlatConfig[]
     );
   }
 
-
   // As the last item to override other configs
   if (enablePrettier) {
     configs.push(...prettier());
