@@ -1,19 +1,19 @@
-import json from "@rollup/plugin-json";
-import typescript from "@rollup/plugin-typescript";
+import json from '@rollup/plugin-json';
+import typescript from '@rollup/plugin-typescript';
 
-const input = "src/index.ts";
+const input = 'src/index.ts';
 
 export default [
   {
     input,
     output: [
       {
-        file: "dist/index.js",
-        format: "es",
+        file: 'dist/index.js',
+        format: 'es',
       },
       {
-        file: "dist/index.cjs",
-        format: "cjs",
+        file: 'dist/index.cjs',
+        format: 'cjs',
       },
     ],
     plugins: [json(), typescript()],

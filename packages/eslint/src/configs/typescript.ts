@@ -1,23 +1,28 @@
-import type { Linter } from "eslint"
+import type { Linter } from 'eslint';
 
-import { GLOB_ASTRO_TS, GLOB_MARKDOWN, GLOB_TS, GLOB_TSX } from "../globs"
-import { parserTs, pluginTs } from "../plugins"
-import type { IConfigOptions, ITypeScriptParserOptions, ITypeScriptWithTsconfigPath, ResolvedOptions } from "../types"
-import { renameRules, toArray } from "../utils"
+import { GLOB_ASTRO_TS, GLOB_MARKDOWN, GLOB_TS, GLOB_TSX } from '../globs';
+import { parserTs, pluginTs } from '../plugins';
+import type {
+  IConfigOptions,
+  ITypeScriptParserOptions,
+  ITypeScriptWithTsconfigPath,
+  ResolvedOptions,
+} from '../types';
+import { renameRules, toArray } from '../utils';
 
-export const typescript = (options: ResolvedOptions<IConfigOptions['typescript'] & ITypeScriptParserOptions & ITypeScriptWithTsconfigPath> = {}): Linter.FlatConfig[] => {
-  const { overrides, files: customFiles = [] } = options
+export const typescript = (
+  options: ResolvedOptions<
+    IConfigOptions['typescript'] & ITypeScriptParserOptions & ITypeScriptWithTsconfigPath
+  > = {},
+): Linter.FlatConfig[] => {
+  const { overrides, files: customFiles = [] } = options;
 
-  const files = [GLOB_TS, GLOB_TSX, ...customFiles]
+  const files = [GLOB_TS, GLOB_TSX, ...customFiles];
 
-  const filesTypeAware = options.filesTypeAware ?? [GLOB_TS, GLOB_TSX]
-  const ignoresTypeAware = options.ignoresTypeAware ?? [
-    `${GLOB_MARKDOWN}/**`,
-    GLOB_ASTRO_TS,
-  ]
-  const tsconfigPath = options?.tsconfigPath ? toArray(options.tsconfigPath)
-    : undefined
-  const isTypeAware = !!tsconfigPath
+  const filesTypeAware = options.filesTypeAware ?? [GLOB_TS, GLOB_TSX];
+  const ignoresTypeAware = options.ignoresTypeAware ?? [`${GLOB_MARKDOWN}/**`, GLOB_ASTRO_TS];
+  const tsconfigPath = options?.tsconfigPath ? toArray(options.tsconfigPath) : undefined;
+  const isTypeAware = !!tsconfigPath;
 
   const typeAwareRules: Linter.FlatConfig['rules'] = {
     'dot-notation': 'off',
@@ -40,40 +45,42 @@ export const typescript = (options: ResolvedOptions<IConfigOptions['typescript']
     'ts/restrict-plus-operands': 'error',
     'ts/restrict-template-expressions': 'error',
     'ts/return-await': ['error', 'in-try-catch'],
-    'ts/strict-boolean-expressions': ['error', { allowNullableBoolean: true, allowNullableObject: true }],
+    'ts/strict-boolean-expressions': [
+      'error',
+      { allowNullableBoolean: true, allowNullableObject: true },
+    ],
     'ts/switch-exhaustiveness-check': 'error',
     'ts/unbound-method': 'error',
-  }
-
+  };
 
   function makeParser(typeAware: boolean, files: string[], ignores?: string[]): Linter.FlatConfig {
     return {
       files,
-      ...ignores ? { ignores } : {},
+      ...(ignores ? { ignores } : {}),
       languageOptions: {
         parser: parserTs,
         parserOptions: {
           extraFileExtensions: customFiles.map(glob => glob.split('.').pop()),
           sourceType: 'module',
-          ...typeAware
+          ...(typeAware
             ? {
-              project: tsconfigPath,
-              tsconfigRootDir: process.cwd(),
-            }
-            : {},
+                project: tsconfigPath,
+                tsconfigRootDir: process.cwd(),
+              }
+            : {}),
           ...(options?.parserOptions || {}),
         },
       },
       name: `itaober/typescript/${typeAware ? 'type-aware-parser' : 'parser'}`,
-    }
+    };
   }
 
   return [
     {
       name: 'itaober/typescript/setup',
       plugins: {
-        ts: pluginTs as any
-      }
+        ts: pluginTs as any,
+      },
     },
     {
       name: 'itaober/typescript/parser',
@@ -83,32 +90,28 @@ export const typescript = (options: ResolvedOptions<IConfigOptions['typescript']
         parserOptions: {
           sourceType: 'module',
           ecmaFeatures: {
-            jsx: true
-          }
-        }
+            jsx: true,
+          },
+        },
       },
     },
     // assign type-aware parser for type-aware files and type-unaware parser for the rest
-    ...isTypeAware
+    ...(isTypeAware
       ? [
-        makeParser(true, filesTypeAware, ignoresTypeAware),
-        makeParser(false, files, filesTypeAware),
-      ]
-      : [
-        makeParser(false, files),
-      ],
+          makeParser(true, filesTypeAware, ignoresTypeAware),
+          makeParser(false, files, filesTypeAware),
+        ]
+      : [makeParser(false, files)]),
     {
       name: 'itaober/typescript/rules',
       files,
       rules: {
-        ...renameRules(
-          pluginTs.configs['eslint-recommended'].overrides![0].rules!,
-          { '@typescript-eslint': 'ts' },
-        ),
-        ...renameRules(
-          pluginTs.configs.strict.rules!,
-          { '@typescript-eslint': 'ts' },
-        ),
+        ...renameRules(pluginTs.configs['eslint-recommended'].overrides![0].rules!, {
+          '@typescript-eslint': 'ts',
+        }),
+        ...renameRules(pluginTs.configs.strict.rules!, {
+          '@typescript-eslint': 'ts',
+        }),
         'no-dupe-class-members': 'off',
         'no-loss-of-precision': 'off',
         'no-redeclare': 'off',
@@ -117,7 +120,10 @@ export const typescript = (options: ResolvedOptions<IConfigOptions['typescript']
         'ts/ban-ts-comment': ['error', { 'ts-ignore': 'allow-with-description' }],
         'ts/ban-types': ['error', { types: { Function: false } }],
         'ts/consistent-type-definitions': ['error', 'interface'],
-        'ts/consistent-type-imports': ['error', { disallowTypeAnnotations: false, prefer: 'type-imports' }],
+        'ts/consistent-type-imports': [
+          'error',
+          { disallowTypeAnnotations: false, prefer: 'type-imports' },
+        ],
         'ts/method-signature-style': ['error', 'property'], // https://www.totaltypescript.com/method-shorthand-syntax-considered-harmful
         'ts/no-dupe-class-members': 'error',
         'ts/no-dynamic-delete': 'off',
@@ -137,16 +143,18 @@ export const typescript = (options: ResolvedOptions<IConfigOptions['typescript']
         'ts/unified-signatures': 'off',
 
         ...overrides,
-      }
+      },
     },
-    ...isTypeAware
-      ? [{
-        files: filesTypeAware,
-        ignores: ignoresTypeAware,
-        name: 'antfu/typescript/rules-type-aware',
-        rules: typeAwareRules,
-      }]
-      : [],
+    ...(isTypeAware
+      ? [
+          {
+            files: filesTypeAware,
+            ignores: ignoresTypeAware,
+            name: 'antfu/typescript/rules-type-aware',
+            rules: typeAwareRules,
+          },
+        ]
+      : []),
     {
       name: 'itaober/typescript/disables/dts',
       files: ['**/*.d.?([cm])ts'],
@@ -172,5 +180,5 @@ export const typescript = (options: ResolvedOptions<IConfigOptions['typescript']
         'ts/no-var-requires': 'off',
       },
     },
-  ]
-}
+  ];
+};

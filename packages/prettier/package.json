@@ -1,0 +1,34 @@
+{
+  "name": "@itaober/prettier",
+  "version": "0.1.0-alpha.1",
+  "license": "MIT",
+  "keywords": [
+    "prettier"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clear": "rm -rf dist",
+    "build": "pnpm clear && rollup -c"
+  },
+  "peerDependencies": {
+    "prettier": ">=2.2.0"
+  },
+  "dependencies": {
+    "@itaober/tsconfig": "workspace:*"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.6",
+    "rollup": "^4.18.0",
+    "typescript": "^5.5.2"
+  }
+}

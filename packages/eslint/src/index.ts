@@ -1,5 +1,5 @@
-import { factory } from "./factory";
+import { factory } from './factory';
 
-export * from "./configs";
+export * from './configs';
 
 export default factory;

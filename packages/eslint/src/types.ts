@@ -1,4 +1,4 @@
-import type { Linter } from "eslint";
+import type { Linter } from 'eslint';
 
 export type Awaitable<T> = T | Promise<T>;
 
@@ -21,16 +21,15 @@ export interface IIsInEditor {
  * Options for overriding rules in a config.
  */
 export interface IOverrides {
-  overrides?: Linter.FlatConfig["rules"];
+  overrides?: Linter.FlatConfig['rules'];
 }
-
 
 export interface ICustomFileGlobs {
   /**
    * Custom globs the `files` option.
    * @example ['**\/*.vue']
    */
-  files?: string[]
+  files?: string[];
 }
 
 export interface ITypeScriptWithTsconfigPath {
@@ -60,7 +59,6 @@ export interface ITypeScriptParserOptions {
   ignoresTypeAware?: string[];
 }
 
-
 export interface IConfigOptions extends Linter.FlatConfig {
   /**
    * Control to disable some rules in editors.
@@ -81,4 +79,12 @@ export interface IConfigOptions extends Linter.FlatConfig {
   typescript?:
     | boolean
     | (IOverrides & ICustomFileGlobs & (ITypeScriptWithTsconfigPath | ITypeScriptParserOptions));
+  /**
+   * Use external formatter to format files.
+   *
+   * When set to `true`, it will enable all formatters.
+   *
+   * @default auto-detect based on the dependencies
+   */
+  prettier?: boolean;
 }

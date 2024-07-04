@@ -1,18 +1,14 @@
-import process from "node:process";
+import process from 'node:process';
 
-import type { Linter } from "eslint";
+import type { Linter } from 'eslint';
 
-import { ignores, imports, javascript, typescript } from "./configs";
-import { GLOB_VUE } from "./globs";
-import type { Awaitable, IConfigOptions, ResolvedOptions } from "./types";
-import { isPackageExisted } from "./utils";
+import { ignores, imports, javascript, prettier, typescript } from './configs';
+import { GLOB_VUE } from './globs';
+import type { Awaitable, IConfigOptions, ResolvedOptions } from './types';
+import { isPackageExisted } from './utils';
 
-// 
-const VuePackages = [
-  'vue',
-  'nuxt',
-  'vitepress',
-]
+//
+const VuePackages = ['vue', 'nuxt', 'vitepress'];
 
 export const factory = (options?: IConfigOptions): Awaitable<Linter.FlatConfig[]> => {
   const {
@@ -25,24 +21,31 @@ export const factory = (options?: IConfigOptions): Awaitable<Linter.FlatConfig[]
       !process.env.CI
     ),
     typescript: enableTypeScript = isPackageExisted('typescript'),
+    prettier: enablePrettier = isPackageExisted('prettier'),
   } = options ?? {};
 
-  const enableVue = VuePackages.some(i => isPackageExisted(i))
+  const enableVue = VuePackages.some(i => isPackageExisted(i));
 
   const configs: Awaitable<Linter.FlatConfig[]> = [
     ...ignores(),
     ...javascript({
-      overrides: getOverrides(options, "javascript"),
+      overrides: getOverrides(options, 'javascript'),
     }),
-    ...imports({ isInEditor })
+    ...imports({ isInEditor }),
   ];
 
   if (enableTypeScript) {
-    const tsOptions = resolveSubOptions(options, 'typescript')
-    configs.push(...typescript({
-      ...tsOptions,
-      files: [...(tsOptions?.files ?? []), ...(enableVue ? [GLOB_VUE] : [])]
-    }))
+    const tsOptions = resolveSubOptions(options, 'typescript');
+    configs.push(
+      ...typescript({
+        ...tsOptions,
+        files: [...(tsOptions?.files ?? []), ...(enableVue ? [GLOB_VUE] : [])],
+      }),
+    );
+  }
+
+  if (enablePrettier) {
+    configs.push(...prettier());
   }
 
   return configs;
@@ -51,17 +54,14 @@ export const factory = (options?: IConfigOptions): Awaitable<Linter.FlatConfig[]
 // utils for factory
 function resolveSubOptions<K extends keyof IConfigOptions>(
   options: IConfigOptions = {},
-  key: K
+  key: K,
 ): ResolvedOptions<IConfigOptions[K]> {
-  return typeof options[key] === "boolean" ? ({} as any) : options[key] || {};
+  return typeof options[key] === 'boolean' ? ({} as any) : options[key] || {};
 }
 
-function getOverrides<K extends keyof IConfigOptions>(
-  options: IConfigOptions = {},
-  key: K
-) {
+function getOverrides<K extends keyof IConfigOptions>(options: IConfigOptions = {}, key: K) {
   const sub = resolveSubOptions(options, key);
   return {
-    ...("overrides" in sub ? (sub.overrides as object) : {}),
+    ...('overrides' in sub ? (sub.overrides as object) : {}),
   };
 }

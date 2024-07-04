@@ -1,3 +1,3 @@
 export default {
-  extends: ["@itaober/commitlint"],
+  extends: ['@itaober/commitlint'],
 };

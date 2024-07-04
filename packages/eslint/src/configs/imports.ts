@@ -4,9 +4,8 @@ import { GLOB_SRC_EXT } from '../globs';
 import { importXPlugin, simpleImportSortPlugin, unusedImportsPlugin } from '../plugins';
 import type { IIsInEditor } from '../types';
 
-
 export const imports = (options?: IIsInEditor): Linter.FlatConfig[] => {
-  const {isInEditor = false} = options ?? {}
+  const { isInEditor = false } = options ?? {};
 
   return [
     {
@@ -31,7 +30,12 @@ export const imports = (options?: IIsInEditor): Linter.FlatConfig[] => {
         'unused-imports/no-unused-imports': isInEditor ? 'off' : 'error',
         'unused-imports/no-unused-vars': [
           'error',
-           { args: 'after-used', argsIgnorePattern: '^_', vars: 'all', varsIgnorePattern: '^_' },
+          {
+            args: 'after-used',
+            argsIgnorePattern: '^_',
+            vars: 'all',
+            varsIgnorePattern: '^_',
+          },
         ],
       },
     },

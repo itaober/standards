@@ -1,3 +1,3 @@
-import eslint from "@itaober/eslint-config";
+import eslint from '@itaober/eslint-config';
 
-export default eslint();
+export default eslint({ fomatter: true });
