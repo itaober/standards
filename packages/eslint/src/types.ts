@@ -1,7 +1,8 @@
-import type { ParserOptions } from "@typescript-eslint/parser";
 import type { Linter } from "eslint";
 
 export type Awaitable<T> = T | Promise<T>;
+
+export type ResolvedOptions<T> = T extends boolean ? never : NonNullable<T>;
 
 /**
  * A flat config item.
@@ -23,6 +24,15 @@ export interface IOverrides {
   overrides?: Linter.FlatConfig["rules"];
 }
 
+
+export interface ICustomFileGlobs {
+  /**
+   * Custom globs the `files` option.
+   * @example ['**\/*.vue']
+   */
+  files?: string[]
+}
+
 export interface ITypeScriptWithTsconfigPath {
   /**
    * When this options is provided, type aware rules will be enabled.
@@ -35,20 +45,21 @@ export interface ITypeScriptParserOptions {
   /**
    * Additional parser options for TypeScript.
    */
-  parserOptions?: Partial<ParserOptions>;
+  parserOptions?: Partial<Linter.ParserOptions>;
 
   /**
    * Glob patterns for files that should be type aware.
-   * @default ['**\/*.{ts,tsx}']
+   * @default `['**\/*.{ts,tsx}']`
    */
   filesTypeAware?: string[];
 
   /**
    * Glob patterns for files that should not be type aware.
-   * @default ['**\/*.md\/**', '**\/*.astro/*.ts']
+   * @default `['**\/*.md\/**', '**\/*.astro/*.ts']`
    */
   ignoresTypeAware?: string[];
 }
+
 
 export interface IConfigOptions extends Linter.FlatConfig {
   /**
@@ -69,5 +80,5 @@ export interface IConfigOptions extends Linter.FlatConfig {
    */
   typescript?:
     | boolean
-    | (IOverrides & (ITypeScriptWithTsconfigPath | ITypeScriptParserOptions));
+    | (IOverrides & ICustomFileGlobs & (ITypeScriptWithTsconfigPath | ITypeScriptParserOptions));
 }

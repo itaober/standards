@@ -3,7 +3,7 @@ import path from "path";
 
 import type { Awaitable } from "./types"
 
-export const isDepExist = (name: string) => {
+export const isPackageExisted = (name: string) => {
   const packageJsonPath = path.join(process.cwd(), 'package.json');
 
   try {
@@ -22,14 +22,16 @@ export async function interopDefault<T>(m: Awaitable<T>): Promise<T extends { de
   return (resolved as any).default || resolved
 }
 
+export function toArray<T>(value: T | T[]): T[] {
+  return Array.isArray(value) ? value : [value]
+}
+
 /**
  * Rename plugin prefixes in a rule object.
  * Accepts a map of prefixes to rename.
  *
  * @example
  * ```ts
- * import { renameRules } from '@antfu/eslint-config'
- *
  * export default [{
  *   rules: renameRules(
  *     {

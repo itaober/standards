@@ -3,8 +3,16 @@ import process from "node:process";
 import type { Linter } from "eslint";
 
 import { ignores, imports, javascript, typescript } from "./configs";
-import type { Awaitable, IConfigOptions } from "./types";
-import { isDepExist } from "./utils";
+import { GLOB_VUE } from "./globs";
+import type { Awaitable, IConfigOptions, ResolvedOptions } from "./types";
+import { isPackageExisted } from "./utils";
+
+// 
+const VuePackages = [
+  'vue',
+  'nuxt',
+  'vitepress',
+]
 
 export const factory = (options?: IConfigOptions): Awaitable<Linter.FlatConfig[]> => {
   const {
@@ -16,29 +24,31 @@ export const factory = (options?: IConfigOptions): Awaitable<Linter.FlatConfig[]
         process.env.NVIM) &&
       !process.env.CI
     ),
-    typescript: enableTypeScript = isDepExist('typescript'),
+    typescript: enableTypeScript = isPackageExisted('typescript'),
   } = options ?? {};
+
+  const enableVue = VuePackages.some(i => isPackageExisted(i))
 
   const configs: Awaitable<Linter.FlatConfig[]> = [
     ...ignores(),
     ...javascript({
       overrides: getOverrides(options, "javascript"),
     }),
-    ...imports({isInEditor})
+    ...imports({ isInEditor })
   ];
 
-  if(enableTypeScript) {
-    configs.push(...typescript())
+  if (enableTypeScript) {
+    const tsOptions = resolveSubOptions(options, 'typescript')
+    configs.push(...typescript({
+      ...tsOptions,
+      files: [...(tsOptions?.files ?? []), ...(enableVue ? [GLOB_VUE] : [])]
+    }))
   }
-
-
 
   return configs;
 };
 
 // utils for factory
-export type ResolvedOptions<T> = T extends boolean ? never : NonNullable<T>;
-
 function resolveSubOptions<K extends keyof IConfigOptions>(
   options: IConfigOptions = {},
   key: K
