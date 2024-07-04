@@ -1,6 +1,5 @@
 import type { Linter } from 'eslint';
 
-import { GLOB_SRC_EXT } from '../globs';
 import { importXPlugin, simpleImportSortPlugin, unusedImportsPlugin } from '../plugins';
 import type { IIsInEditor } from '../types';
 
@@ -37,14 +36,6 @@ export const imports = (options?: IIsInEditor): Linter.FlatConfig[] => {
             varsIgnorePattern: '^_',
           },
         ],
-      },
-    },
-    {
-      name: 'itaober/imports/disables/bin',
-      files: ['**/bin/**/*', `**/bin.${GLOB_SRC_EXT}`],
-      rules: {
-        'antfu/no-import-dist': 'off',
-        'antfu/no-import-node-modules-by-path': 'off',
       },
     },
   ];
