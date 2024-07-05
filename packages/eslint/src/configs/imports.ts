@@ -1,6 +1,6 @@
 import type { Linter } from 'eslint';
 
-import { importXPlugin, simpleImportSortPlugin, unusedImportsPlugin } from '../plugins';
+import { pluginImportX, pluginSimpleImportSort, pluginUnusedImports } from '../plugins';
 import type { IIsInEditor } from '../types';
 
 export const imports = (options?: IIsInEditor): Linter.FlatConfig[] => {
@@ -10,9 +10,9 @@ export const imports = (options?: IIsInEditor): Linter.FlatConfig[] => {
     {
       name: 'itaober/imports/rules',
       plugins: {
-        'simple-import-sort': simpleImportSortPlugin,
-        import: importXPlugin as any,
-        'unused-imports': unusedImportsPlugin,
+        'simple-import-sort': pluginSimpleImportSort,
+        import: pluginImportX as any,
+        'unused-imports': pluginUnusedImports,
       },
       rules: {
         'simple-import-sort/imports': 'error',

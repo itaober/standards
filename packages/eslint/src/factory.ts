@@ -2,12 +2,11 @@ import process from 'node:process';
 
 import type { Linter } from 'eslint';
 
-import { ignores, imports, javascript, prettier, typescript } from './configs';
+import { ignores, imports, javascript, prettier, react, typescript } from './configs';
 import { GLOB_VUE } from './globs';
 import type { Awaitable, IConfigOptions, ResolvedOptions } from './types';
 import { isPackageExisted } from './utils';
 
-//
 const VuePackages = ['vue', 'nuxt', 'vitepress'];
 
 export const factory = (options?: IConfigOptions): Awaitable<Linter.FlatConfig[]> => {
@@ -22,9 +21,14 @@ export const factory = (options?: IConfigOptions): Awaitable<Linter.FlatConfig[]
     ),
     typescript: enableTypeScript = isPackageExisted('typescript'),
     prettier: enablePrettier = isPackageExisted('prettier'),
+    react: enableReact = isPackageExisted('react'),
   } = options ?? {};
 
   const enableVue = VuePackages.some(i => isPackageExisted(i));
+
+  const typescriptOptions = resolveSubOptions(options, 'typescript');
+  const tsconfigPath =
+    'tsconfigPath' in typescriptOptions ? typescriptOptions.tsconfigPath : undefined;
 
   const configs: Awaitable<Linter.FlatConfig[]> = [
     ...ignores(),
@@ -40,6 +44,15 @@ export const factory = (options?: IConfigOptions): Awaitable<Linter.FlatConfig[]
       ...typescript({
         ...tsOptions,
         files: [...(tsOptions?.files ?? []), ...(enableVue ? [GLOB_VUE] : [])],
+      }),
+    );
+  }
+
+  if (enableReact) {
+    configs.push(
+      ...react({
+        ...resolveSubOptions(options, 'react'),
+        tsconfigPath,
       }),
     );
   }

@@ -127,7 +127,7 @@ export const typescript = (
         'ts/method-signature-style': ['error', 'property'], // https://www.totaltypescript.com/method-shorthand-syntax-considered-harmful
         'ts/no-dupe-class-members': 'error',
         'ts/no-dynamic-delete': 'off',
-        'ts/no-explicit-any': 'off',
+        'ts/no-explicit-any': 'warn',
         'ts/no-extraneous-class': 'off',
         'ts/no-import-type-side-effects': 'error',
         'ts/no-invalid-void-type': 'off',

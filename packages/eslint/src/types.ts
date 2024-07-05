@@ -74,14 +74,20 @@ export interface IConfigOptions extends Linter.FlatConfig {
    *
    * Passing an object to enable TypeScript Language Server support.
    *
-   * @default auto-detect based on the dependencies
+   * @default auto-detect based on the dependencies `typescript`
    */
   typescript?:
     | boolean
     | (IOverrides & ICustomFileGlobs & (ITypeScriptWithTsconfigPath | ITypeScriptParserOptions));
   /**
    * Runs Prettier as an ESLint rule and reports differences as individual ESLint issues.
-   * @default auto-detect based on the dependencies
+   * @default auto-detect based on the dependencies `prettier`
    */
   prettier?: boolean;
+  /**
+   * Enable React rules.
+   *
+   * @default auto-detect based on the dependencies `react`
+   */
+  react?: boolean | (IOverrides & ICustomFileGlobs);
 }
