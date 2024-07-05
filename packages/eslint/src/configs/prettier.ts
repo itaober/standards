@@ -1,4 +1,4 @@
-import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import { eslintPluginPrettierRecommended } from '../plugins';
 
 export const prettier = () => {
   return [eslintPluginPrettierRecommended];

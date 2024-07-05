@@ -148,9 +148,9 @@ export const typescript = (
     ...(isTypeAware
       ? [
           {
+            name: 'itaober/typescript/rules-type-aware',
             files: filesTypeAware,
             ignores: ignoresTypeAware,
-            name: 'antfu/typescript/rules-type-aware',
             rules: typeAwareRules,
           },
         ]
