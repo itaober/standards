@@ -62,9 +62,6 @@ importers:
       '@eslint/compat':
         specifier: ^1.1.0
         version: 1.1.0
-      '@itaober/prettier':
-        specifier: workspace:*
-        version: link:../prettier
       '@typescript-eslint/eslint-plugin':
         specifier: ^7.15.0
         version: 7.15.0(@typescript-eslint/parser@7.15.0(eslint@9.6.0)(typescript@5.5.2))(eslint@9.6.0)(typescript@5.5.2)
