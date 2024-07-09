@@ -52,6 +52,8 @@ export const react = (
         ...pluginReact.configs.recommended.rules,
         'react/no-danger': 'warn',
         'react/self-closing-comp': 'error',
+        'react/jsx-uses-react': 'off',
+        'react/react-in-jsx-scope': 'off',
 
         // recommended rules react-hooks
         ...pluginReactHooks.configs.recommended.rules,

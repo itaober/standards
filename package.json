@@ -8,7 +8,6 @@
     "build": "pnpm recursive run build",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
-    "format": "prettier --write \"./**/*.{js,jsx,ts,tsx,json,vue}\"",
     "prepare": "simple-git-hooks"
   },
   "keywords": [],
@@ -26,7 +25,6 @@
   },
   "lint-staged": {
     "*": [
-      "pnpm format",
       "pnpm lint:fix"
     ]
   },
