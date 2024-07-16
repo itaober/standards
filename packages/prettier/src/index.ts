@@ -12,7 +12,6 @@ const options: Options = {
   trailingComma: 'all',
   bracketSpacing: true,
   bracketSameLine: false,
-  jsxBracketSameLine: false,
   arrowParens: 'avoid',
   rangeStart: 0,
   rangeEnd: Infinity,
