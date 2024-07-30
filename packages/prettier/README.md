@@ -1,6 +1,6 @@
 # @itaober/prettier-config
 
-English / [简体中文](./README.md)
+English / [简体中文](./README_CN.md)
 
 ## Getting Started
 
