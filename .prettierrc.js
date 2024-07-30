@@ -1,3 +1,3 @@
-import prettier from '@itaober/prettier';
+import config from '@itaober/prettier-config';
 
-export default prettier;
+export default config;
