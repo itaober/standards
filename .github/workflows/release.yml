@@ -49,7 +49,7 @@ jobs:
           commit: 'release: update versions by GitHub Actions'
           title: 'release: update versions by GitHub Actions'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Send a Slack notification if a publish happens
