@@ -18,21 +18,21 @@ defaults:
 
 jobs:
   release:
-    name: Release by changeset
+    name: Release by changesets
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
-      - name: Setup Node.js 18.x
+      - name: Setup Node.js 18.16.0
         uses: actions/setup-node@v3
         with:
-          node-version: 18.x
+          node-version: 18.16.0
 
-      - name: Setup pnpm 9.x
+      - name: Setup pnpm 9.3.0
         uses: pnpm/action-setup@v2.2.1
         with:
-          version: 9.x
+          version: 9.3.0
 
       - name: Install dependencies
         run: pnpm install
@@ -40,7 +40,7 @@ jobs:
       - name: Build packages
         run: pnpm run build
 
-      - name: Create Release Pull Request or Publish
+      - name: Release by changesets
         id: changesets
         uses: changesets/action@v1
         with:
@@ -50,7 +50,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Send a Slack notification if a publish happens
-        if: steps.changesets.outputs.published == 'true'
-        run: my-slack-bot send-notification --message "A new version of ${GITHUB_REPOSITORY} was published!"
