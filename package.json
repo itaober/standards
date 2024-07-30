@@ -9,12 +9,16 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
     "cz": "git-cz",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "changeset publish",
     "prepare": "simple-git-hooks"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@changesets/cli": "^2.27.7",
     "@itaober/commitlint": "workspace:*",
     "@itaober/eslint-config": "workspace:*",
     "@itaober/prettier": "workspace:*",

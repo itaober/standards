@@ -1,0 +1,13 @@
+{
+  "mode": "pre",
+  "tag": "alpha",
+  "initialVersions": {
+    "@itaober/commitlint": "0.1.0-alpha.1",
+    "@itaober/eslint-config": "0.1.0-alpha.1",
+    "@itaober/prettier": "0.1.0-alpha.1",
+    "@itaober/tsconfig": "0.1.0-alpha.1"
+  },
+  "changesets": [
+    "pink-keys-bake"
+  ]
+}
