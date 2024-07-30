@@ -2,15 +2,19 @@
 
 [English](./README.md) / 简体中文
 
+## 介绍
+
+`@itaober/prettier-config` 提供了一组预定义的 Prettier 配置，帮助快速统一代码格式，提升代码可读性和可维护性。
+
 ## 快速开始
 
-### 安装依赖
+### 安装
 
 ```bash
 pnpm install @itaober/prettier-config prettier -D
 ```
 
-### 配置文件
+### 使用方式
 
 > 如果你完全认同 `@itaober/prettier-config` 配置，推荐使用 `JSON` 方式；
 >
@@ -18,7 +22,7 @@ pnpm install @itaober/prettier-config prettier -D
 >
 > 更多配置参考 [Prettier 配置](https://prettier.io/docs/en/configuration)。
 
-#### `ESM`
+### `ESM`
 
 在 `package.json` 中设置 [`"type": "module"`](https://nodejs.org/api/packages.html#type)。
 
@@ -39,7 +43,7 @@ export default {
 };
 ```
 
-#### `CJS`
+### `CJS`
 
 在 `package.json` 中设置 [`"type": "commonjs"`](https://nodejs.org/api/packages.html#type)。
 
@@ -58,7 +62,7 @@ module.exports = {
 };
 ```
 
-#### `JSON`
+### `JSON`
 
 配置文件可以是以下之一：
 
@@ -80,7 +84,7 @@ module.exports = {
 }
 ```
 
-### 在 `package.json` 中添加 `format` 脚本
+## 在 `package.json` 中添加 `format` 脚本
 
 举例:
 
@@ -92,7 +96,7 @@ module.exports = {
 }
 ```
 
-### pre-commit 格式化
+## pre-commit 格式化
 
 如果你需要每次 `git commit` 之前都由 `prettier` 格式化代码，可参考：
 

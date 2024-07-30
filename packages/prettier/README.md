@@ -2,15 +2,17 @@
 
 English / [简体中文](./README_CN.md)
 
-## Getting Started
+## Introduction
 
-### Install Dependencies
+`@itaober/prettier-config` provides a set of predefined Prettier configurations to help quickly standardize code formatting, improving code readability and maintainability.
+
+## Install
 
 ```bash
 pnpm install @itaober/prettier-config prettier -D
 ```
 
-### Configuration File
+## Usage
 
 > If you fully agree with the `@itaober/prettier-config`, it is recommended to use the `JSON` method.
 >
@@ -18,7 +20,7 @@ pnpm install @itaober/prettier-config prettier -D
 >
 > For more configurations, refer to the [Prettier configuration](https://prettier.io/docs/en/configuration).
 
-#### `ESM`
+### `ESM`
 
 Set [`"type": "module"`](https://nodejs.org/api/packages.html#type) in your `package.json`.
 
@@ -39,7 +41,7 @@ export default {
 };
 ```
 
-#### `CJS`
+### `CJS`
 
 Set [`"type": "commonjs"`](https://nodejs.org/api/packages.html#type) in your `package.json`.
 
@@ -58,7 +60,7 @@ module.exports = {
 };
 ```
 
-#### `JSON`
+### `JSON`
 
 Configuration files can be one of the following:
 
@@ -70,7 +72,7 @@ Configuration files can be one of the following:
 "@itaober/prettier-config"
 ```
 
-#### `package.json`
+### `package.json`
 
 Add the following configuration to your `package.json`:
 
@@ -80,7 +82,7 @@ Add the following configuration to your `package.json`:
 }
 ```
 
-### Add `format` Script to `package.json`
+## Add `format` Script to `package.json`
 
 Example:
 
@@ -92,7 +94,7 @@ Example:
 }
 ```
 
-### Pre-commit Formatting
+## Pre-commit Formatting
 
 If you want `prettier` to format your code before every `git commit`, follow these steps:
 
