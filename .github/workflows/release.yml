@@ -24,15 +24,13 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
-      - name: Setup Node.js 18.16.0
+      - name: Setup Node.js v18.16.0
         uses: actions/setup-node@v3
         with:
           node-version: 18.16.0
 
-      - name: Setup pnpm 9.3.0
-        uses: pnpm/action-setup@v2.2.1
-        with:
-          version: 9.3.0
+      - name: Install pnpm v9.3.0
+        run: npm i pnpm@9.3.0 -g
 
       - name: Install dependencies
         run: pnpm install
