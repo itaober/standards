@@ -30,7 +30,6 @@ jobs:
           node-version: 20.x
 
       - name: Setup pnpm 9.x
-      - uses: actions/checkout@v3
         uses: pnpm/action-setup@v2.2.1
         with:
           version: 9.x
