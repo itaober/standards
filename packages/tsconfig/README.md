@@ -7,8 +7,8 @@ English / [简体中文](./README_CN.md)
 `@itaober/tsconfig` provides a set of TypeScript configuration files suitable for different types of projects. Currently, it includes the following configurations:
 
 - `base.json`: Basic configuration suitable for general TypeScript projects.
-- `react-library.json`: Configuration designed specifically for developing and publishing React component libraries.
-- `react-app.json`: Configuration optimized for building and developing React applications.
+- `react-library.json`: Configuration for developing and publishing React component libraries.
+- `react-app.json`: Configuration for building and developing React applications.
 
 ## Install
 

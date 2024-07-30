@@ -6,9 +6,9 @@
 
 `@itaober/tsconfig` 提供了一套适用于不同类型项目的 TypeScript 配置文件，当前包含以下配置：
 
-- `base.json`: 基础配置，适用于一般的 TypeScript 项目。
-- `react-library.json`: React 库配置，专为开发和发布 React 组件库设计。
-- `react-app.json`: React 应用配置，优化用于构建和开发 React 应用程序。
+- `base.json`: 基础配置，适用于一般的 TypeScript 项目；
+- `react-library.json`: React 库配置，用于开发和发布 React 组件库；
+- `react-app.json`: React 应用配置，用于构建和开发 React 应用程序。
 
 ## 安装
 
