@@ -8,6 +8,7 @@
     "build": "pnpm recursive run build",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
+    "cz": "git-cz",
     "prepare": "simple-git-hooks"
   },
   "keywords": [],
@@ -31,5 +32,10 @@
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged",
     "commit-msg": "npx --no-install commitlint --edit $1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
   }
 }
