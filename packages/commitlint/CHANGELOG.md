@@ -1,5 +1,13 @@
 # @itaober/commitlint
 
+## 0.1.0-alpha.3
+
+### Patch Changes
+
+- docs: update package.json info
+- Updated dependencies
+  - @itaober/tsconfig@0.1.0-alpha.3
+
 ## 0.1.0-alpha.2
 
 ### Patch Changes
