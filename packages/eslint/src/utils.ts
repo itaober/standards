@@ -1,28 +1,7 @@
 import { readFileSync } from 'fs';
 import path from 'path';
 
-import type { Awaitable } from './types';
-
-export const parserPlain = {
-  meta: {
-    name: 'parser-plain',
-  },
-  parseForESLint: (code: string) => ({
-    ast: {
-      body: [],
-      comments: [],
-      loc: { end: code.length, start: 0 },
-      range: [0, code.length],
-      tokens: [],
-      type: 'Program',
-    },
-    scopeManager: null,
-    services: { isPlain: true },
-    visitorKeys: {
-      Program: [],
-    },
-  }),
-};
+import type { IConfigOptions, ResolvedOptions } from './types';
 
 export const isPackageExisted = (name: string) => {
   const packageJsonPath = path.join(process.cwd(), 'package.json');
@@ -38,16 +17,9 @@ export const isPackageExisted = (name: string) => {
   }
 };
 
-export async function interopDefault<T>(
-  m: Awaitable<T>,
-): Promise<T extends { default: infer U } ? U : T> {
-  const resolved = await m;
-  return (resolved as any).default || resolved;
-}
-
-export function toArray<T>(value: T | T[]): T[] {
+export const toArray = <T>(value: T | T[]): T[] => {
   return Array.isArray(value) ? value : [value];
-}
+};
 
 /**
  * Rename plugin prefixes in a rule object.
@@ -65,7 +37,7 @@ export function toArray<T>(value: T | T[]): T[] {
  * }]
  * ```
  */
-export function renameRules(rules: Record<string, any>, map: Record<string, string>) {
+export const renameRules = (rules: Record<string, any>, map: Record<string, string>) => {
   return Object.fromEntries(
     Object.entries(rules).map(([key, value]) => {
       for (const [from, to] of Object.entries(map)) {
@@ -74,4 +46,21 @@ export function renameRules(rules: Record<string, any>, map: Record<string, stri
       return [key, value];
     }),
   );
-}
+};
+
+export const resolveSubOptions = <K extends keyof IConfigOptions>(
+  options: IConfigOptions = {},
+  key: K,
+): ResolvedOptions<IConfigOptions[K]> => {
+  return typeof options[key] === 'boolean' ? ({} as any) : options[key] || {};
+};
+
+export const getOverrides = <K extends keyof IConfigOptions>(
+  options: IConfigOptions = {},
+  key: K,
+) => {
+  const sub = resolveSubOptions(options, key);
+  return {
+    ...('overrides' in sub ? (sub.overrides as object) : {}),
+  };
+};
