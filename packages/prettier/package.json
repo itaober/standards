@@ -2,8 +2,15 @@
   "name": "@itaober/prettier-config",
   "version": "0.1.0-alpha.2",
   "license": "MIT",
+  "description": "Prettier preset",
+  "author": "Taober <itaober@gmail.com> (https://github.com/itaober)",
+  "homepage": "https://github.com/itaober/standards/tree/main/packages/prettier#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itaober/standards/tree/main/packages/prettier"
+  },
   "keywords": [
-    "prettier"
+    "prettier-config"
   ],
   "type": "module",
   "exports": {

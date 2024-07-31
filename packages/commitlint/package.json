@@ -2,6 +2,13 @@
   "name": "@itaober/commitlint",
   "version": "0.1.0-alpha.2",
   "license": "MIT",
+  "description": "Commontlint preset",
+  "author": "Taober <itaober@gmail.com> (https://github.com/itaober)",
+  "homepage": "https://github.com/itaober/standards/tree/main/packages/commitlint#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itaober/standards/tree/main/packages/commitlint"
+  },
   "keywords": [
     "commitlint"
   ],
