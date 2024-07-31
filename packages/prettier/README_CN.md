@@ -6,15 +6,13 @@
 
 `@itaober/prettier-config` 提供了一组预定义的 Prettier 配置，帮助快速统一代码格式，提升代码可读性和可维护性。
 
-## 快速开始
-
-### 安装
+## 安装
 
 ```bash
 pnpm install @itaober/prettier-config prettier -D
 ```
 
-### 使用方式
+## 使用方式
 
 > 如果你完全认同 `@itaober/prettier-config` 配置，推荐使用 `JSON` 方式；
 >
@@ -106,7 +104,7 @@ module.exports = {
 pnpm add simple-git-hooks lint-staged -D
 ```
 
-2. 将如下代码到你的 `package.json` 中
+2. 在 `package.json` 中添加如下代码
 
 ```json
 {

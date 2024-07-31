@@ -100,4 +100,6 @@ const config: UserConfig = {
   },
 };
 
+export { RuleConfigSeverity, UserConfig };
+
 export default config;
