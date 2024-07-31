@@ -4,12 +4,12 @@ import type { Linter } from 'eslint';
 
 import { ignores, imports, javascript, prettier, react, typescript } from './configs';
 import { GLOB_VUE } from './globs';
-import type { Awaitable, IConfigOptions, ResolvedOptions } from './types';
-import { isPackageExisted } from './utils';
+import type { IConfigOptions } from './types';
+import { getOverrides, isPackageExisted, resolveSubOptions } from './utils';
 
 const VuePackages = ['vue', 'nuxt', 'vitepress'];
 
-export const factory = (options?: IConfigOptions): Awaitable<Linter.FlatConfig[]> => {
+export const factory = (options?: IConfigOptions): Linter.FlatConfig[] => {
   const {
     isInEditor = !!(
       (process.env.VSCODE_PID ||
@@ -30,7 +30,7 @@ export const factory = (options?: IConfigOptions): Awaitable<Linter.FlatConfig[]
   const tsconfigPath =
     'tsconfigPath' in typescriptOptions ? typescriptOptions.tsconfigPath : undefined;
 
-  const configs: Awaitable<Linter.FlatConfig[]> = [
+  const configs: Linter.FlatConfig[] = [
     ...ignores(),
     ...javascript({
       overrides: getOverrides(options, 'javascript'),
@@ -64,18 +64,3 @@ export const factory = (options?: IConfigOptions): Awaitable<Linter.FlatConfig[]
 
   return configs;
 };
-
-// utils for factory
-function resolveSubOptions<K extends keyof IConfigOptions>(
-  options: IConfigOptions = {},
-  key: K,
-): ResolvedOptions<IConfigOptions[K]> {
-  return typeof options[key] === 'boolean' ? ({} as any) : options[key] || {};
-}
-
-function getOverrides<K extends keyof IConfigOptions>(options: IConfigOptions = {}, key: K) {
-  const sub = resolveSubOptions(options, key);
-  return {
-    ...('overrides' in sub ? (sub.overrides as object) : {}),
-  };
-}

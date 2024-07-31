@@ -1,12 +1,11 @@
 {
   // Prettier
   "prettier.enable": true,
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   // ESLint
   "eslint.enable": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll": "explicit",
     "source.fixAll.eslint": "explicit",
     "source.organizeImports": "never"
   },
@@ -17,12 +16,21 @@
     "typescript",
     "typescriptreact",
     "vue"
-    // "html",
-    // "markdown",
-    // "json",
-    // "jsonc",
-    // "yaml",
-    // "toml",
-    // "xml"
-  ]
+  ],
+  // Disable formatOnSave for specific file types
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": false
+  },
+  "[typescript]": {
+    "editor.formatOnSave": false
+  },
+  "[typescriptreact]": {
+    "editor.formatOnSave": false
+  },
+  "[vue]": {
+    "editor.formatOnSave": false
+  }
 }
