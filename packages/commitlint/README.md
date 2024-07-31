@@ -1,4 +1,3 @@
-```markdown
 # @itaober/commitlint
 
 English / [简体中文](./README_CN.md)
@@ -83,4 +82,3 @@ pnpm add simple-git-hooks -D
 ## Changelog
 
 See [CHANGELOG.md](./CHANGELOG.md).
-```
