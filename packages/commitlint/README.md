@@ -81,4 +81,4 @@ pnpm add simple-git-hooks -D
 
 ## Changelog
 
-See [CHANGELOG.md](./CHANGELOG.md).
+See the [CHANGELOG.md](./CHANGELOG.md).

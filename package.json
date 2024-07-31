@@ -7,7 +7,7 @@
   "scripts": {
     "build": "pnpm recursive run build",
     "lint": "eslint .",
-    "lint:fix": "eslint --fix",
+    "lint:fix": "eslint . --fix",
     "cz": "git-cz",
     "changeset": "changeset",
     "version": "changeset version",
