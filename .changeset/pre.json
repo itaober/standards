@@ -8,6 +8,7 @@
     "@itaober/tsconfig": "0.1.0-alpha.1"
   },
   "changesets": [
+    "big-rockets-scream",
     "pink-keys-bake"
   ]
 }

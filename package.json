@@ -10,7 +10,7 @@
     "lint:fix": "eslint . --fix",
     "cz": "git-cz",
     "changeset": "changeset",
-    "version": "changeset version",
+    "changeset:v": "changeset version",
     "release": "changeset publish",
     "prepare": "simple-git-hooks"
   },
