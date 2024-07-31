@@ -21,13 +21,13 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
-      - name: Setup Node.js v18.16.0
+      - name: Setup Node.js v20.x
         uses: actions/setup-node@v3
         with:
-          node-version: 18.16.0
+          node-version: 20.x
 
-      - name: Install pnpm v9.3.0
-        run: npm i pnpm@9.3.0 -g
+      - name: Install pnpm v9.x
+        run: npm i pnpm@^9 -g
 
       - name: Install dependencies
         run: pnpm install
