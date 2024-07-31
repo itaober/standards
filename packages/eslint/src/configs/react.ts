@@ -48,6 +48,11 @@ export const react = (
         },
         sourceType: 'module',
       },
+      settings: {
+        react: {
+          version: 'detect',
+        },
+      },
       rules: {
         ...pluginReact.configs.recommended.rules,
         'react/no-danger': 'warn',
