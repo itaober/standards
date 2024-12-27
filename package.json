@@ -1,0 +1,17 @@
+{
+  "name": "standards",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "Taober <itaober@gmail.com> (https://github.com/itaober)",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "formart": "prettier --write .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@itaober/prettier-config": "workspace:*",
+    "prettier": "^3.4.2"
+  }
+}
