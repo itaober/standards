@@ -12,6 +12,7 @@
   "keywords": [],
   "devDependencies": {
     "@itaober/prettier-config": "workspace:*",
+    "@itaober/tsconfig": "workspace:*",
     "prettier": "^3.4.2"
   }
 }

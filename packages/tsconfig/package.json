@@ -1,0 +1,27 @@
+{
+  "name": "@itaober/tsconfig",
+  "version": "0.1.0-alpha.1",
+  "description": "Taober's TSConfig preset",
+  "exports": {
+    "./*.json": "./dist/*.json"
+  },
+  "files": [
+    "base.json",
+    "react-library.json",
+    "react-app.json"
+  ],
+  "scripts": {
+    "clear": "rm -rf dist",
+    "build": "pnpm clear && mkdir -p dist && rsync -a src/ dist/"
+  },
+  "license": "MIT",
+  "author": "Taober <itaober@gmail.com> (https://github.com/itaober)",
+  "homepage": "https://github.com/itaober/standards/tree/main/packages/tsconfig#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itaober/standards/tree/main/packages/tsconfig"
+  },
+  "keywords": [
+    "tsconfig"
+  ]
+}
