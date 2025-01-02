@@ -4,7 +4,7 @@ import type { Config } from 'prettier';
  * @see https://prettier.io/docs/en/configuration.html
  * @type {import("prettier").Config}
  */
-const config: Config = {
+const prettierConfig: Config = {
   printWidth: 100,
   tabWidth: 2,
   useTabs: false,
@@ -26,4 +26,4 @@ const config: Config = {
   singleAttributePerLine: false,
 };
 
-export default config;
+export default prettierConfig;

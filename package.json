@@ -6,13 +6,18 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "formart": "prettier --write .",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "devDependencies": {
+    "@itaober/eslint-config": "workspace:*",
     "@itaober/prettier-config": "workspace:*",
     "@itaober/tsconfig": "workspace:*",
-    "prettier": "^3.4.2"
+    "eslint": "^9.17.0",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.2"
   }
 }
