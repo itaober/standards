@@ -6,11 +6,12 @@
   "description": "",
   "type": "module",
   "scripts": {
+    "build": "pnpm recursive run build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
-    "prepare": "simple-git-hooks",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "postinstall": "simple-git-hooks"
   },
   "keywords": [],
   "devDependencies": {
