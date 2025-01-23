@@ -55,4 +55,4 @@ React 应用开发配置：
 
 ## 协议
 
-MIT
+[![License MIT](https://img.shields.io/badge/License-MIT-yellow)](../../LICENSE)
