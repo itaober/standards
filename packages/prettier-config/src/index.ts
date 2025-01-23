@@ -1,11 +1,17 @@
 import type { Config } from 'prettier';
 
+import { getPackageIsExisted } from './utils';
+
 /**
  * @type {import('prettier').Config}
  * @see https://prettier.io/docs/en/configuration.html
  */
 const prettierConfig: Config = {
-  plugins: ['prettier-plugin-jsdoc', 'prettier-plugin-packagejson'],
+  plugins: [
+    'prettier-plugin-jsdoc',
+    'prettier-plugin-packagejson',
+    ...(getPackageIsExisted('tailwindcss') ? ['prettier-plugin-tailwindcss'] : []),
+  ],
   printWidth: 100,
   tabWidth: 2,
   useTabs: false,
