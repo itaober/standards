@@ -1,8 +1,18 @@
 {
   "name": "@itaober/eslint-config",
   "version": "0.1.0-alpha.1",
-  "type": "module",
   "description": "Taober's Eslint preset",
+  "keywords": [
+    "eslint"
+  ],
+  "homepage": "https://github.com/itaober/standards/tree/main/packages/eslint-config#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itaober/standards/tree/main/packages/eslint-config"
+  },
+  "license": "MIT",
+  "author": "Taober <itaober@gmail.com> (https://github.com/itaober)",
+  "type": "module",
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -14,29 +24,8 @@
     "dist"
   ],
   "scripts": {
-    "clear": "rm -rf dist",
-    "build": "pnpm clear && rollup -c"
-  },
-  "license": "MIT",
-  "author": "Taober <itaober@gmail.com> (https://github.com/itaober)",
-  "homepage": "https://github.com/itaober/standards/tree/main/packages/eslint-config#readme",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/itaober/standards/tree/main/packages/eslint-config"
-  },
-  "keywords": [
-    "eslint"
-  ],
-  "peerDependencies": {
-    "eslint": ">=9.0.0"
-  },
-  "devDependencies": {
-    "@itaober/tsconfig": "workspace:*",
-    "@rollup/plugin-typescript": "^12.1.2",
-    "@types/node": "^22.10.2",
-    "rollup": "^4.29.1",
-    "tslib": "^2.8.1",
-    "typescript": "^5.7.2"
+    "build": "pnpm clear && rollup -c",
+    "clear": "rm -rf dist"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^8.19.0",
@@ -50,5 +39,16 @@
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "eslint-plugin-unused-imports": "^4.1.4",
     "globals": "^15.14.0"
+  },
+  "devDependencies": {
+    "@itaober/tsconfig": "workspace:*",
+    "@rollup/plugin-typescript": "^12.1.2",
+    "@types/node": "^22.10.2",
+    "rollup": "^4.29.1",
+    "tslib": "^2.8.1",
+    "typescript": "^5.7.2"
+  },
+  "peerDependencies": {
+    "eslint": ">=9.0.0"
   }
 }

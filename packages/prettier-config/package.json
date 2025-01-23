@@ -1,8 +1,18 @@
 {
   "name": "@itaober/prettier-config",
   "version": "0.1.0-alpha.1",
-  "type": "module",
   "description": "Taober's Prettier preset",
+  "keywords": [
+    "prettier"
+  ],
+  "homepage": "https://github.com/itaober/standards/tree/main/packages/prettier-config#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itaober/standards/tree/main/packages/prettier-config"
+  },
+  "license": "MIT",
+  "author": "Taober <itaober@gmail.com> (https://github.com/itaober)",
+  "type": "module",
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -14,21 +24,12 @@
     "dist"
   ],
   "scripts": {
-    "clear": "rm -rf dist",
-    "build": "pnpm clear && rollup -c"
+    "build": "pnpm clear && rollup -c",
+    "clear": "rm -rf dist"
   },
-  "license": "MIT",
-  "author": "Taober <itaober@gmail.com> (https://github.com/itaober)",
-  "homepage": "https://github.com/itaober/standards/tree/main/packages/prettier-config#readme",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/itaober/standards/tree/main/packages/prettier-config"
-  },
-  "keywords": [
-    "prettier"
-  ],
-  "peerDependencies": {
-    "prettier": ">=3.0.0"
+  "dependencies": {
+    "prettier-plugin-jsdoc": "^1.3.2",
+    "prettier-plugin-packagejson": "^2.5.8"
   },
   "devDependencies": {
     "@itaober/tsconfig": "workspace:*",
@@ -36,5 +37,8 @@
     "rollup": "^4.29.1",
     "tslib": "^2.8.1",
     "typescript": "^5.7.2"
+  },
+  "peerDependencies": {
+    "prettier": ">=3.0.0"
   }
 }

@@ -1,10 +1,11 @@
 import type { Config } from 'prettier';
 
 /**
+ * @type {import('prettier').Config}
  * @see https://prettier.io/docs/en/configuration.html
- * @type {import("prettier").Config}
  */
 const prettierConfig: Config = {
+  plugins: ['prettier-plugin-jsdoc', 'prettier-plugin-packagejson'],
   printWidth: 100,
   tabWidth: 2,
   useTabs: false,

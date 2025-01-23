@@ -1,33 +1,22 @@
 {
   "name": "standards",
   "version": "1.0.0",
+  "description": "",
+  "keywords": [],
   "license": "MIT",
   "author": "Taober <itaober@gmail.com> (https://github.com/itaober)",
-  "description": "",
   "type": "module",
   "scripts": {
     "build": "pnpm recursive run build",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "format": "prettier --write .",
     "commit": "git-cz",
-    "postinstall": "simple-git-hooks"
+    "format": "prettier --write .",
+    "postinstall": "simple-git-hooks",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
-  "keywords": [],
-  "devDependencies": {
-    "@itaober/commitlint-config": "workspace:*",
-    "@itaober/eslint-config": "workspace:*",
-    "@itaober/prettier-config": "workspace:*",
-    "@itaober/tsconfig": "workspace:*",
-    "@commitlint/cli": "^19.6.1",
-    "@commitlint/cz-commitlint": "^19.6.1",
-    "commitizen": "^4.3.1",
-    "eslint": "^9.17.0",
-    "inquirer": "9",
-    "lint-staged": "^15.3.0",
-    "prettier": "^3.4.2",
-    "simple-git-hooks": "^2.11.1",
-    "typescript": "^5.7.2"
+  "simple-git-hooks": {
+    "pre-commit": "npx --no-install lint-staged",
+    "commit-msg": "npx --no-install commitlint --edit $1"
   },
   "lint-staged": {
     "*": [
@@ -35,13 +24,24 @@
       "pnpm lint:fix"
     ]
   },
-  "simple-git-hooks": {
-    "pre-commit": "npx --no-install lint-staged",
-    "commit-msg": "npx --no-install commitlint --edit $1"
-  },
   "config": {
     "commitizen": {
       "path": "@commitlint/cz-commitlint"
     }
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/cz-commitlint": "^19.6.1",
+    "@itaober/commitlint-config": "workspace:*",
+    "@itaober/eslint-config": "workspace:*",
+    "@itaober/prettier-config": "workspace:*",
+    "@itaober/tsconfig": "workspace:*",
+    "commitizen": "^4.3.1",
+    "eslint": "^9.17.0",
+    "inquirer": "9",
+    "lint-staged": "^15.3.0",
+    "prettier": "^3.4.2",
+    "simple-git-hooks": "^2.11.1",
+    "typescript": "^5.7.2"
   }
 }

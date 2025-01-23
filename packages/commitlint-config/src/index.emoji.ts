@@ -2,8 +2,8 @@ import type { UserConfig } from '@commitlint/types';
 import { RuleConfigSeverity } from '@commitlint/types';
 
 /**
- * @see https://github.com/conventional-changelog/commitlint
  * @type {import('@commitlint/types').UserConfig}
+ * @see https://github.com/conventional-changelog/commitlint
  */
 const commitlintConfig: UserConfig = {
   extends: ['@commitlint/config-conventional'],

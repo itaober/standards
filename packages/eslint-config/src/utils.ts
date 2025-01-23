@@ -40,28 +40,28 @@ export const getPackageIsExisted = (
 
 /**
  * Converts a value to an array if it is not already an array.
+ *
  * @param value The value to convert.
- * @returns  An array containing the value or the value itself if it is already an array.
+ * @returns An array containing the value or the value itself if it is already an array.
  */
 export const toArray = <T>(value: T | T[]): T[] => {
   return Array.isArray(value) ? value : [value];
 };
 
 /**
- * Rename plugin prefixes in a rule object.
- * Accepts a map of prefixes to rename.
+ * Rename plugin prefixes in a rule object. Accepts a map of prefixes to rename.
  *
  * @example
- * ```ts
- * export default [{
- *   rules: renameRules(
- *     {
- *       '@typescript-eslint/indent': 'error'
- *     },
- *     { '@typescript-eslint': 'ts' }
- *   )
- * }]
- * ```
+ *   ```ts
+ *   export default [{
+ *     rules: renameRules(
+ *       {
+ *         '@typescript-eslint/indent': 'error'
+ *       },
+ *       { '@typescript-eslint': 'ts' }
+ *     )
+ *   }]
+ *   ```;
  */
 export const renameRules = (rules: Record<string, any>, map: Record<string, string>) => {
   return Object.fromEntries(

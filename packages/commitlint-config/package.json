@@ -1,8 +1,19 @@
 {
   "name": "@itaober/commitlint-config",
   "version": "0.1.0-alpha.1",
-  "type": "module",
   "description": "Taober's Prettier preset",
+  "keywords": [
+    "commitlint",
+    "commitizen"
+  ],
+  "homepage": "https://github.com/itaober/standards/tree/main/packages/commitlint-config#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itaober/standards/tree/main/packages/commitlint-config"
+  },
+  "license": "MIT",
+  "author": "Taober <itaober@gmail.com> (https://github.com/itaober)",
+  "type": "module",
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -18,22 +29,11 @@
     "dist"
   ],
   "scripts": {
-    "clear": "rm -rf dist",
-    "build": "pnpm clear && rollup -c"
+    "build": "pnpm clear && rollup -c",
+    "clear": "rm -rf dist"
   },
-  "license": "MIT",
-  "author": "Taober <itaober@gmail.com> (https://github.com/itaober)",
-  "homepage": "https://github.com/itaober/standards/tree/main/packages/commitlint-config#readme",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/itaober/standards/tree/main/packages/commitlint-config"
-  },
-  "keywords": [
-    "commitlint",
-    "commitizen"
-  ],
-  "peerDependencies": {
-    "@commitlint/cli": ">=19.0.0"
+  "dependencies": {
+    "@commitlint/config-conventional": "^19.6.0"
   },
   "devDependencies": {
     "@commitlint/types": "^19.5.0",
@@ -43,7 +43,7 @@
     "tslib": "^2.8.1",
     "typescript": "^5.7.2"
   },
-  "dependencies": {
-    "@commitlint/config-conventional": "^19.6.0"
+  "peerDependencies": {
+    "@commitlint/cli": ">=19.0.0"
   }
 }
