@@ -13,7 +13,7 @@
 ## 安装
 
 ```bash
-pnpm install @itaober/tsconfig -D
+pnpm add @itaober/tsconfig -D
 ```
 
 ## 使用

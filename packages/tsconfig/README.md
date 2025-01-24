@@ -13,7 +13,7 @@ English | [简体中文](./README_CN.md)
 ## Installation
 
 ```bash
-pnpm install @itaober/tsconfig -D
+pnpm add @itaober/tsconfig -D
 ```
 
 ## Usage
