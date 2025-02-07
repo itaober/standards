@@ -88,7 +88,7 @@ export default {
 
 为了确保代码在每次提交前都保持一致的格式，你可以使用 `simple-git-hooks` 和 `lint-staged`：
 
-1. 安装所需的包：
+1. 安装所需依赖：
 
 ```bash
 pnpm add simple-git-hooks lint-staged -D

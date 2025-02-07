@@ -45,7 +45,7 @@ const commitlintConfig: UserConfig = {
         description: "Select the type of change that you're committing:",
         enum: {
           init: {
-            description: 'Initial commit.',
+            description: 'Initial commit',
             title: 'init',
             emoji: '🎉',
           },
