@@ -24,6 +24,8 @@ pnpm add prettier @itaober/prettier-config -D
 
 ## Usage
 
+### Configuration
+
 If you fully agree with the `@itaober/prettier-config`, you can add it directly to your `package.json`:
 
 ```json
@@ -40,7 +42,7 @@ import config from '@itaober/prettier-config';
 export default config;
 ```
 
-Of course, if you want to customize the configuration, create a .prettierrc.js and use the following code:
+Of course, if you want to customize the configuration, create a `.prettierrc.js` and use the following code:
 
 ```js
 import config from '@itaober/prettier-config';
@@ -56,11 +58,21 @@ export default {
 };
 ```
 
-## Extra configuration (optional)
+### Add package.json Script
 
-### VSCode settings
+```json
+{
+  "scripts": {
+    "format": "prettier --write ."
+  }
+}
+```
 
-1. Install the [Prettier extension for VSCode](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+## IDE Support
+
+### VSCode
+
+1. Install the [Prettier extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 2. Add the following settings to your `.vscode/settings.json`:
 
 ```json
@@ -71,21 +83,9 @@ export default {
 }
 ```
 
-This ensures Prettier is the default formatter and automatically formats your files on save.
+## Extra Configuration (Optional)
 
-### add `format` script
-
-You can add a `format` script to your `package.json` to format your codebase manually when needed:
-
-```json
-{
-  "scripts": {
-    "format": "prettier --write ."
-  }
-}
-```
-
-### Pre-commit formatting
+### Pre-commit Formatting
 
 To ensure your code is consistently formatted before each commit, you can use `simple-git-hooks` and `lint-staged`:
 
@@ -99,6 +99,9 @@ pnpm add simple-git-hooks lint-staged -D
 
 ```json
 {
+  "scripts": {
+    "prepare": "simple-git-hooks"
+  },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"
   },
@@ -108,24 +111,12 @@ pnpm add simple-git-hooks lint-staged -D
 }
 ```
 
-3. Add simple-git-hooks initialization to the prepare script in `package.json`:
-
-```json
-"scripts": {
-  "prepare": "simple-git-hooks"
-}
-```
-
-4. Run `pnpm prepare` to initialize simple-git-hooks.
+3. Activate `simple-git-hooks`:
 
 ```bash
-pnpm prepare
+npx simple-git-hooks
 ```
 
 ## License
 
 [![License MIT](https://img.shields.io/badge/License-MIT-yellow)](../../LICENSE)
-
-```
-
-```

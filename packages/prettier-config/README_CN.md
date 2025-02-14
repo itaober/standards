@@ -6,6 +6,16 @@
 
 `@itaober/prettier-config` 提供了一套 Prettier 配置预设，便于实现一致且规范的代码格式。
 
+## 特性
+
+本配置包含了带个人偏好的预设和多个内置插件：
+
+- `prettier-plugin-jsdoc`：格式化 JSDoc 注释
+- `prettier-plugin-packagejson`：格式化 `package.json` 文件
+- `prettier-plugin-tailwindcss`：格式化 Tailwind CSS 类名（当项目依赖中包含 `tailwindcss` 时自动启用）
+
+完整的配置详情，请查看[源代码](./src/index.ts)。
+
 ## 安装
 
 ```bash
@@ -13,6 +23,8 @@ pnpm add prettier @itaober/prettier-config -D
 ```
 
 ## 使用方法
+
+### 配置文件
 
 如果你完全认同 `@itaober/prettier-config` 的配置，可直接在 `package.json` 中添加：
 
@@ -46,19 +58,19 @@ export default {
 };
 ```
 
-## 特性
+### 添加 package.json 脚本
 
-本配置包含了带个人偏好的预设和多个内置插件：
+```json
+{
+  "scripts": {
+    "format": "prettier --write ."
+  }
+}
+```
 
-- `prettier-plugin-jsdoc`：格式化 JSDoc 注释
-- `prettier-plugin-packagejson`：格式化 `package.json` 文件
-- `prettier-plugin-tailwindcss`：格式化 Tailwind CSS 类名（当项目依赖中包含 `tailwindcss` 时自动启用）
+## IDE 支持
 
-完整的配置详情，请查看[源代码](./src/index.ts)。
-
-## 额外配置（可选）
-
-### VSCode 设置
+### VSCode
 
 1. 安装 [Prettier 插件](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 2. 在 `.vscode/settings.json` 中添加以下设置：
@@ -71,23 +83,11 @@ export default {
 }
 ```
 
-这样可以将 Prettier 设置为默认格式化工具，并在保存时自动格式化文件。
-
-### 添加 `format` 脚本
-
-你可以在 `package.json` 中添加 `format` 脚本，以便在需要时手动格式化代码：
-
-```json
-{
-  "scripts": {
-    "format": "prettier --write ."
-  }
-}
-```
+## 额外配置（可选）
 
 ### 提交前格式化
 
-为了确保代码在每次提交前都保持一致的格式，你可以使用 `simple-git-hooks` 和 `lint-staged`：
+如果你期望每次提交代码前都由 Prettier 格式化，可以使用 `simple-git-hooks` 和 `lint-staged` 实现：
 
 1. 安装所需依赖：
 
@@ -99,6 +99,9 @@ pnpm add simple-git-hooks lint-staged -D
 
 ```json
 {
+  "scripts": {
+    "prepare": "simple-git-hooks"
+  },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"
   },
@@ -108,18 +111,10 @@ pnpm add simple-git-hooks lint-staged -D
 }
 ```
 
-3. 在 `package.json` 的 prepare 脚本中添加 simple-git-hooks 初始化：
-
-```json
-"scripts": {
-  "prepare": "simple-git-hooks"
-}
-```
-
-4. 运行 `pnpm prepare` 初始化 simple-git-hooks：
+3. 激活 `simple-git-hooks`：
 
 ```bash
-pnpm prepare
+npx simple-git-hooks
 ```
 
 ## 协议
