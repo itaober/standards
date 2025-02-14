@@ -23,5 +23,9 @@
   "scripts": {
     "build": "pnpm clear && mkdir -p dist && rsync -a src/ dist/",
     "clear": "rm -rf dist"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }

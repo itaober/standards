@@ -45,5 +45,9 @@
   },
   "peerDependencies": {
     "@commitlint/cli": ">=19.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }

@@ -7,12 +7,18 @@
   "author": "Taober <itaober@gmail.com> (https://github.com/itaober)",
   "type": "module",
   "scripts": {
-    "build": "pnpm recursive run build",
+    "build": "pnpm -r run build",
+    "changeset": "changeset",
+    "changeset:alpha": "changeset pre enter alpha",
+    "changeset:beta": "changeset pre enter beta",
+    "changeset:exit": "changeset pre exit",
+    "changeset:publish": "pnpm build && changeset publish",
+    "changeset:version": "changeset version",
     "commit": "git-cz",
     "format": "prettier --write .",
-    "postinstall": "simple-git-hooks",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "prepare": "npx simple-git-hooks"
   },
   "simple-git-hooks": {
     "pre-commit": "npx --no-install lint-staged",
@@ -30,6 +36,7 @@
     }
   },
   "devDependencies": {
+    "@changesets/cli": "^2.27.12",
     "@commitlint/cli": "^19.6.1",
     "@commitlint/cz-commitlint": "^19.6.1",
     "@itaober/commitlint-config": "workspace:*",
