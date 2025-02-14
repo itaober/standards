@@ -60,7 +60,8 @@ export default {
 
 ### VSCode 设置
 
-要将 Prettier 集成到 VSCode 中，请在 `.vscode/settings.json` 中添加以下设置：
+1. 安装 [Prettier 插件](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+2. 在 `.vscode/settings.json` 中添加以下设置：
 
 ```json
 {

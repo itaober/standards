@@ -60,7 +60,8 @@ export default {
 
 ### VSCode settings
 
-To integrate Prettier with VSCode, add the following settings to your `.vscode/settings.json`:
+1. Install the [Prettier extension for VSCode](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+2. Add the following settings to your `.vscode/settings.json`:
 
 ```json
 {
