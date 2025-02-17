@@ -35,7 +35,7 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          publish: pnpm release
+          publish: pnpm changeset:publish
           commit: 'release: upgrade packages version by GitHub Action'
           title: 'release: upgrade packages version by GitHub Action'
         env:
