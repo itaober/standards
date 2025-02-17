@@ -9,9 +9,6 @@
   "scripts": {
     "build": "pnpm -r run build",
     "changeset": "changeset",
-    "changeset:alpha": "changeset pre enter alpha",
-    "changeset:beta": "changeset pre enter beta",
-    "changeset:exit": "changeset pre exit",
     "changeset:publish": "pnpm build && changeset publish",
     "changeset:version": "changeset version",
     "commit": "git-cz",

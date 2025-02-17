@@ -1,6 +1,6 @@
 {
   "name": "@itaober/prettier-config",
-  "version": "0.1.0-alpha.1",
+  "version": "1.0.0",
   "description": "Taober's Prettier preset",
   "keywords": [
     "prettier"
