@@ -1,6 +1,6 @@
 {
   "name": "@itaober/tsconfig",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Taober's TSConfig preset",
   "keywords": [
     "tsconfig"
@@ -16,9 +16,7 @@
     "./*.json": "./dist/*.json"
   },
   "files": [
-    "base.json",
-    "react-library.json",
-    "react-app.json"
+    "dist"
   ],
   "scripts": {
     "build": "pnpm clear && mkdir -p dist && rsync -a src/ dist/",
