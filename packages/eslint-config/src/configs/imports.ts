@@ -22,7 +22,6 @@ export const getImportsConfig = (): Linter.Config[] => {
         'import/no-named-default': 'error',
         'import/no-self-import': 'error',
         'import/no-webpack-loader-syntax': 'error',
-        'import/order': 'error',
 
         'unused-imports/no-unused-imports': 'warn',
         'unused-imports/no-unused-vars': [
