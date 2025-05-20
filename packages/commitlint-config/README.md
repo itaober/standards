@@ -53,10 +53,10 @@ pnpm add simple-git-hooks lint-staged -D
 }
 ```
 
-4. Run `pnpm prepare` to initialize simple-git-hooks:
+4. Activate `simple-git-hooks`:
 
 ```bash
-pnpm prepare
+npx simple-git-hooks
 ```
 
 ## Rules

@@ -53,10 +53,10 @@ pnpm add simple-git-hooks lint-staged -D
 }
 ```
 
-4. 运行 `pnpm prepare` 初始化 simple-git-hooks：
+4. 激活 `simple-git-hooks`：
 
 ```bash
-pnpm prepare
+npx simple-git-hooks
 ```
 
 ## 规则
