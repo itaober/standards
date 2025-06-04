@@ -1,6 +1,6 @@
 import type { Linter } from 'eslint';
-import pluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import eslintConfigPrettier from 'eslint-config-prettier/flat';
 
 export const getPrettierConfig = (): Linter.Config[] => {
-  return [pluginPrettierRecommended];
+  return [eslintConfigPrettier];
 };
