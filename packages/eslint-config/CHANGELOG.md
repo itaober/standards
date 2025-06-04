@@ -1,5 +1,11 @@
 # @itaober/eslint-config
 
+## 1.0.2
+
+### Patch Changes
+
+- Replace eslint-plugin-prettier with eslint-config-prettier
+
 ## 1.0.1
 
 ### Patch Changes
