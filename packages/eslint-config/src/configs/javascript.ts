@@ -38,7 +38,7 @@ export const getJavaScriptConfig = (options?: IOverrides): Linter.Config[] => {
       rules: {
         'accessor-pairs': ['error', { enforceForClassMembers: true, setWithoutGet: true }],
         'array-callback-return': 'error',
-        'arrow-parens': ['error', 'as-needed', { requireForBlockBody: true }],
+        'arrow-parens': ['error', 'as-needed', { requireForBlockBody: false }],
         'block-scoped-var': 'error',
         'constructor-super': 'error',
         'default-case-last': 'error',
