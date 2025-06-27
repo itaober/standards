@@ -1,5 +1,11 @@
 # @itaober/eslint-config
 
+## 1.0.5
+
+### Patch Changes
+
+- Set arrow-parens requireForBlockBody rule to `false`
+
 ## 1.0.4
 
 ### Patch Changes
